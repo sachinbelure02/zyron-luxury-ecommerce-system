@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Zyron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Global styles -->
+        <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- TOP HEADER / BRAND AREA -->
+        <header class="luxury-header">
+            <a href="../index.html" class="brand-name">Zyron</a>
+        </header>
+
+        <!-- ACCOUNT NAVIGATION BAR -->
+        <div class="account-nav-container">
+            <div class="profile-back-row">
+                <button type="button" id="profile-back-button" class="profile-back-button" aria-label="Go back">&larr; Back</button>
+            </div>
+            <nav class="account-nav" id="account-nav-tabs">
+                <a href="#" class="account-nav-item active" data-tab="overview">Overview</a>
+                <a href="#" class="account-nav-item" data-tab="profile">My Profile</a>
+                <a href="#" class="account-nav-item" data-tab="orders">My Orders</a>
+                <a href="#" class="account-nav-item" data-tab="wishlist">My Wishlist</a>
+                <a href="#" class="account-nav-item" data-tab="settings">Account Settings</a>
+            </nav>
+        </div>
+
+        <!-- HERO / BANNER AREA -->
+        <section class="hero-banner">
+            <div class="profile-avatar-wrapper">
+                <div class="profile-avatar" id="profile-avatar-initials"></div>
+            </div>
+        </section>
+
+        <div class="content-area">
+            <!-- USER IDENTITY SECTION -->
+            <section class="user-identity-section">
+                <h6 id="welcome-user" class="user-full-name"></h6>
+                <h1 class="user-full-name" id="profile-user-name"></h1>
+                <p class="user-email" id="display-user-email"></p>
+                <p class="user-phone" id="display-user-phone"></p>
+                <p class="member-since" id="display-member-since"></p>
+            </section>
+
+            <!-- DASHBOARD CONTENT SECTIONS -->
+            <div class="dashboard-content-sections">
+                <!-- OVERVIEW SECTION -->
+                <section id="overview-section" class="dashboard-content-section active">
+                    <h2 class="section-title">Overview</h2>
+                    <div class="content-block-grid">
+                        <div class="content-block">
+                            <h3>Recent Orders</h3>
+                            <ul id="overview-recent-orders">
+                                <li>No recent orders.</li>
+                            </ul>
+                            <p><a href="#" data-tab-link="orders">View all orders &rarr;</a></p>
+                        </div>
+                        <div class="content-block">
+                            <h3>Wishlist Summary</h3>
+                            <ul id="overview-wishlist-summary">
+                                <li>Your wishlist is empty.</li>
+                            </ul>
+                            <p><a href="#" data-tab-link="wishlist">View wishlist &rarr;</a></p>
+                        </div>
+                        <div class="content-block">
+                            <h3>Account Details</h3>
+                            <p id="overview-account-details-name"></p>
+                            <p id="overview-account-details-email"></p>
+                            <p><a href="#" data-tab-link="profile">Edit profile &rarr;</a></p>
+                        </div>
+                        <div class="content-block">
+                            <h3>Preferences & Settings</h3>
+                            <p>Manage your communication preferences and security settings.</p>
+                            <p><a href="#" data-tab-link="settings">Go to settings &rarr;</a></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MY PROFILE SECTION -->
+                <section id="profile-section" class="dashboard-content-section">
+                    <h2 class="section-title">My Profile</h2>
+                    <div class="content-block profile-edit-layout">
+                        <div>
+                            <h3>Personal Information</h3>
+                            <form id="profile-edit-form" class="profile-form-grid">
+                                <div class="profile-form-group">
+                                    <label for="profile-title-select">Title</label>
+                                    <select id="profile-title-select">
+                                        <option value="">Select</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Miss">Miss</option>
+                                    </select>
+                                </div>
+                                <div class="profile-form-group">
+                                    <label for="profile-country-select">Country / Region</label>
+                                    <select id="profile-country-select">
+                                        <option value="">Select</option>
+                                        <option value="India">India</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="United Arab Emirates">United Arab Emirates</option>
+                                    </select>
+                                </div>
+                                <div class="profile-form-group">
+                                    <label for="profile-first-name-input">First Name</label>
+                                    <input type="text" id="profile-first-name-input" />
+                                </div>
+                                <div class="profile-form-group">
+                                    <label for="profile-last-name-input">Last Name</label>
+                                    <input type="text" id="profile-last-name-input" />
+                                </div>
+                                <div class="profile-form-group">
+                                    <label for="profile-phone-input">Phone Number</label>
+                                    <input type="tel" id="profile-phone-input" />
+                                </div>
+                                <div class="profile-form-group">
+                                    <label for="profile-dob-input">Date of Birth</label>
+                                    <input type="date" id="profile-dob-input" />
+                                </div>
+                                <div class="profile-form-actions">
+                                    <button type="submit" class="button primary-button">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div>
+                            <div class="profile-side-section" id="profile-preferences-section" hidden aria-hidden="true">
+                                <h4>My Preferences</h4>
+                                <div class="preference-row"><span>Email</span><input class="pref-toggle" type="checkbox" id="pref-email"></div>
+                                <div class="preference-row"><span>Phone</span><input class="pref-toggle" type="checkbox" id="pref-phone"></div>
+                                <div class="preference-row"><span>Text Message</span><input class="pref-toggle" type="checkbox" id="pref-sms"></div>
+                                <div class="preference-row"><span>Postal</span><input class="pref-toggle" type="checkbox" id="pref-postal"></div>
+                            </div>
+                            <div class="profile-side-section">
+                                <h4>Login Information</h4>
+                                <p class="inline-value" id="profile-email-display"></p>
+                                <button type="button" class="link-button" id="profile-password-btn">Change Password</button>
+                            </div>
+                            <div class="profile-side-section">
+                                <h4>My Address Book</h4>
+                                <p class="inline-value" id="profile-address-summary">No saved addresses.</p>
+                                <form id="profile-address-form" class="profile-form-grid" style="margin-top: 12px;">
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-first">First name</label>
+                                        <input type="text" id="profile-addr-first" autocomplete="given-name" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-last">Last name</label>
+                                        <input type="text" id="profile-addr-last" autocomplete="family-name" />
+                                    </div>
+                                    <div class="profile-form-group" style="grid-column: 1 / -1;">
+                                        <label for="profile-addr-a1">Street address</label>
+                                        <input type="text" id="profile-addr-a1" autocomplete="street-address" />
+                                    </div>
+                                    <div class="profile-form-group" style="grid-column: 1 / -1;">
+                                        <label for="profile-addr-a2">Apartment, suite (optional)</label>
+                                        <input type="text" id="profile-addr-a2" autocomplete="address-line2" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-city">City</label>
+                                        <input type="text" id="profile-addr-city" autocomplete="address-level2" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-pin">Pincode</label>
+                                        <input type="text" id="profile-addr-pin" inputmode="numeric" autocomplete="postal-code" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-state">State</label>
+                                        <input type="text" id="profile-addr-state" autocomplete="address-level1" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-country">Country</label>
+                                        <input type="text" id="profile-addr-country" autocomplete="country-name" />
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profile-addr-phone">Phone</label>
+                                        <input type="tel" id="profile-addr-phone" autocomplete="tel" />
+                                    </div>
+                                    <div class="profile-form-group" style="grid-column: 1 / -1;">
+                                        <label for="profile-addr-method">Delivery preference</label>
+                                        <select id="profile-addr-method">
+                                            <option value="standard">Standard delivery</option>
+                                            <option value="express">Express delivery</option>
+                                            <option value="pickup">Boutique pickup</option>
+                                        </select>
+                                    </div>
+                                    <div class="profile-form-actions" style="grid-column: 1 / -1;">
+                                        <button type="submit" class="button primary-button">Save address</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MY ORDERS SECTION -->
+                <section id="orders-section" class="dashboard-content-section">
+                    <h2 class="section-title">My Orders</h2>
+                    <div id="dashboard-orders-list" class="empty-state">
+                        <h3>No Orders Yet</h3>
+                        <p>It looks like you haven't placed any orders with us. Start exploring our products!</p>
+                        <a href="../index.html" class="button">Start Shopping</a>
+                    </div>
+                    <!-- Orders will be dynamically loaded here if any -->
+                </section>
+
+                <!-- MY WISHLIST SECTION -->
+                <section id="wishlist-section" class="dashboard-content-section">
+                    <h2 class="section-title">My Wishlist</h2>
+                    <div id="dashboard-wishlist-list" class="empty-state">
+                        <h3>Your Wishlist is Empty</h3>
+                        <p>You haven't added any items to your wishlist yet. Find something you love!</p>
+                        <a href="../index.html" class="button">Explore Products</a>
+                    </div>
+                    <!-- Wishlist items will be dynamically loaded here if any -->
+                </section>
+
+                <!-- ACCOUNT SETTINGS SECTION -->
+                <section id="settings-section" class="dashboard-content-section">
+                    <h2 class="section-title">Account Settings</h2>
+                    <div class="settings-actions">
+                        <a href="#" class="button">Edit Profile</a>
+                        <a href="#" class="button">Manage Preferences</a>
+                        <button id="logout-btn" class="button logout-button">Logout</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/profile-page.js"></script>
+
+</body>
+</html>

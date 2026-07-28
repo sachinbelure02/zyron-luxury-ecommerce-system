@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping bag &amp; checkout | Zyron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/orders.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-left">
+                <button type="button" class="nav-link nav-btn" aria-label="Open menu" data-menu-trigger>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                    <span>Menu</span>
+                </button>
+                <a href="search.html" class="nav-link" aria-label="Search">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <span>Search</span>
+                </a>
+            </div>
+            <a href="../index.html" class="brand">Zyron</a>
+            <div class="nav-right">
+                <a href="wishlist.html" class="nav-link" aria-label="Wishlist">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span>Favourite</span>
+                </a>
+                <a href="profile.html" class="nav-link" aria-label="Profile">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+                <a href="orders.html" class="nav-link" aria-label="My Orders">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M10 20.73l-.47-.47a1.99 1.99 0 0 0-2.82 0l-1.06 1.06-.47-.47a1.99 1.99 0 0 0 0-2.82L9 14l-1.06-1.06a1.99 1.99 0 0 0-2.82 0L3.61 15.42a1.99 1.99 0 0 0 0 2.82l.47.47-1.06 1.06a1.99 1.99 0 0 0 0 2.82l.47.47-1.06 1.06a1.99 1.99 0 0 0 0-2.82L13 22l-1.06-1.06a1.99 1.99 0 0 0-2.82 0Z"/>
+                        <path d="M20 10v4c0 1.1-.9 2-2 2h-2c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2Z"/>
+                        <path d="M10 4V2h4v2H10z"/>
+                    </svg>
+                    <span>Orders</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="menu-overlay" data-menu-overlay aria-hidden="true"></div>
+    <aside class="slide-menu" data-slide-menu aria-hidden="true">
+        <button type="button" class="slide-menu-close" aria-label="Close menu" data-menu-close>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <nav class="slide-menu-nav">
+            <a href="men.html" class="slide-menu-item">Men</a>
+            <a href="women.html" class="slide-menu-item">Women</a>
+            <a href="jewellery.html" class="slide-menu-item">Jewellery</a>
+            <a href="watches.html" class="slide-menu-item">Watches</a>
+            <a href="handbags.html" class="slide-menu-item">Handbags</a>
+            <a href="shoes.html" class="slide-menu-item">Shoes</a>
+        </nav>
+    </aside>
+
+    <main class="orders-page-content orders-checkout" id="orders-checkout-root">
+        <div id="orders-placed-banner" class="orders-bag__banner" role="status" hidden>
+            Thank you — your order was placed. You can continue shopping anytime.
+        </div>
+
+        <p class="checkout-flow__eyebrow" id="orders-checkout-eyebrow">Checkout · Step 1 of 6</p>
+        <h1 class="page-title orders-bag__title" id="orders-checkout-title">Shopping bag</h1>
+        <p class="checkout-flow__lede orders-bag__lede" id="orders-checkout-lede">Review your pieces, then continue through each checkout step.</p>
+
+        <ol class="checkout-steps orders-bag__steps" id="orders-steps-nav" aria-label="Checkout progress">
+            <li class="checkout-step" data-step="bag"><a href="#bag">Bag</a></li>
+            <li class="checkout-step" data-step="customer"><a href="#customer">Details</a></li>
+            <li class="checkout-step" data-step="delivery"><a href="#delivery">Delivery</a></li>
+            <li class="checkout-step" data-step="billing"><a href="#billing">Billing</a></li>
+            <li class="checkout-step" data-step="payment"><a href="#payment">Payment</a></li>
+            <li class="checkout-step" data-step="review"><a href="#review">Review</a></li>
+        </ol>
+
+        <!-- Step 1: Bag -->
+        <section id="orders-step-bag" class="orders-step" data-checkout-step="bag" aria-labelledby="orders-checkout-title">
+            <div class="orders-list" id="orders-list">
+                <p class="no-orders-message">Your bag is empty.</p>
+            </div>
+            <aside id="cart-summary" class="orders-bag__summary" aria-label="Order summary"></aside>
+            <div class="orders-bag__cta-row">
+                <a href="../index.html" class="orders-bag__link-ghost">Continue shopping</a>
+                <button type="button" class="orders-bag__cta is-disabled" id="orders-continue-checkout" aria-disabled="true">Continue to checkout</button>
+            </div>
+        </section>
+
+        <!-- Step 2: Customer -->
+        <section id="orders-step-customer" class="orders-step orders-step--narrow" data-checkout-step="customer" hidden>
+            <p id="checkout-customer-loading" class="checkout-customer-loading" hidden>Loading your saved details…</p>
+
+            <div id="checkout-customer-summary-block" class="checkout-customer-summary" hidden>
+                <h2 class="checkout-review-heading">Your details</h2>
+                <p class="checkout-customer-summary__body" id="checkout-customer-summary-body"></p>
+                <p class="checkout-customer-summary__note" id="checkout-customer-summary-note" hidden></p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" href="#bag">Back to bag</a>
+                    <button type="button" class="checkout-btn checkout-btn--ghost" id="checkout-customer-edit">Edit</button>
+                    <button type="button" class="checkout-btn checkout-btn--primary" id="checkout-customer-use-saved">Continue to delivery</button>
+                </div>
+            </div>
+
+            <form id="checkout-customer-form" class="checkout-form" novalidate hidden>
+                <div id="cust-wrap-name" class="cust-field-wrap">
+                    <label class="checkout-label" for="cust-name">Full name</label>
+                    <input class="checkout-input" type="text" id="cust-name" name="name" autocomplete="name" required>
+                </div>
+                <div id="cust-wrap-email" class="cust-field-wrap">
+                    <label class="checkout-label" for="cust-email">Email</label>
+                    <input class="checkout-input" type="email" id="cust-email" name="email" autocomplete="email" required>
+                </div>
+                <div id="cust-wrap-phone" class="cust-field-wrap">
+                    <label class="checkout-label" for="cust-phone">Phone (optional)</label>
+                    <input class="checkout-input" type="tel" id="cust-phone" name="phone" autocomplete="tel">
+                </div>
+                <p id="checkout-customer-error" class="checkout-error" hidden>Please enter your name and a valid email.</p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" href="#bag">Back to bag</a>
+                    <button type="button" class="checkout-btn checkout-btn--ghost" id="checkout-customer-cancel-edit" hidden>Use saved summary</button>
+                    <button type="submit" class="checkout-btn checkout-btn--primary" id="checkout-customer-submit">Continue to delivery</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Step 3: Delivery -->
+        <section id="orders-step-delivery" class="orders-step orders-step--narrow" data-checkout-step="delivery" hidden>
+            <p id="checkout-delivery-loading" class="checkout-customer-loading" hidden>Loading your saved address…</p>
+
+            <div id="checkout-delivery-summary-block" class="checkout-customer-summary" hidden>
+                <h2 class="checkout-review-heading">Delivery address</h2>
+                <p class="checkout-customer-summary__body" id="checkout-delivery-summary-body"></p>
+                <p class="checkout-customer-summary__note" id="checkout-delivery-summary-note" hidden></p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" id="checkout-delivery-back" href="#customer">Back</a>
+                    <button type="button" class="checkout-btn checkout-btn--ghost" id="checkout-delivery-edit">Edit</button>
+                    <button type="button" class="checkout-btn checkout-btn--primary" id="checkout-delivery-use-saved">Continue to billing</button>
+                </div>
+            </div>
+
+            <form id="checkout-delivery-form" class="checkout-form" novalidate hidden>
+                <div class="checkout-field-group checkout-field-group--2">
+                    <div>
+                        <label class="checkout-label" for="del-first">First name</label>
+                        <input class="checkout-input" type="text" id="del-first" name="firstName" autocomplete="given-name" required>
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="del-last">Last name</label>
+                        <input class="checkout-input" type="text" id="del-last" name="lastName" autocomplete="family-name" required>
+                    </div>
+                </div>
+                <div>
+                    <label class="checkout-label" for="del-a1">Address</label>
+                    <input class="checkout-input" type="text" id="del-a1" name="address1" autocomplete="street-address" required>
+                </div>
+                <div>
+                    <label class="checkout-label" for="del-a2">Apartment, suite, etc. (optional)</label>
+                    <input class="checkout-input" type="text" id="del-a2" name="address2" autocomplete="address-line2">
+                </div>
+                <div class="checkout-field-group checkout-field-group--2">
+                    <div>
+                        <label class="checkout-label" for="del-city">City</label>
+                        <input class="checkout-input" type="text" id="del-city" name="city" autocomplete="address-level2" required>
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="del-pin">Pincode</label>
+                        <input class="checkout-input" type="text" id="del-pin" name="pincode" inputmode="numeric" autocomplete="postal-code" required>
+                    </div>
+                </div>
+                <div class="checkout-field-group checkout-field-group--2">
+                    <div>
+                        <label class="checkout-label" for="del-state">State</label>
+                        <input class="checkout-input" type="text" id="del-state" name="state" autocomplete="address-level1" required>
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="del-country">Country</label>
+                        <input class="checkout-input" type="text" id="del-country" name="country" autocomplete="country-name" required>
+                    </div>
+                </div>
+                <div>
+                    <label class="checkout-label" for="del-phone">Phone number</label>
+                    <input class="checkout-input" type="tel" id="del-phone" name="phone" autocomplete="tel" required>
+                </div>
+                <div>
+                    <label class="checkout-label" for="del-method">Delivery method</label>
+                    <select class="checkout-select" id="del-method" name="method" required>
+                        <option value="standard">Standard delivery — ₹99</option>
+                        <option value="express">Express delivery — ₹199</option>
+                        <option value="pickup">Boutique pickup — complimentary</option>
+                    </select>
+                    <p class="checkout-hint">Delivery fee is confirmed on the review step.</p>
+                </div>
+                <p id="checkout-delivery-error" class="checkout-error" hidden>Please complete all required fields.</p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" id="checkout-delivery-form-back" href="#customer">Back</a>
+                    <button type="button" class="checkout-btn checkout-btn--ghost" id="checkout-delivery-cancel-edit" hidden>Use saved address</button>
+                    <button type="submit" class="checkout-btn checkout-btn--primary">Save and continue</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Step 4: Billing -->
+        <section id="orders-step-billing" class="orders-step orders-step--narrow" data-checkout-step="billing" hidden>
+            <form id="checkout-billing-form" class="checkout-form" novalidate>
+                <label class="checkout-checkbox-row">
+                    <input type="checkbox" id="bill-same" checked>
+                    <span>Same as delivery address</span>
+                </label>
+                <div id="billing-fields" class="checkout-billing-extra" hidden>
+                    <div class="checkout-field-group checkout-field-group--2">
+                        <div>
+                            <label class="checkout-label" for="bill-first">First name</label>
+                            <input class="checkout-input" type="text" id="bill-first" name="firstName" autocomplete="billing given-name">
+                        </div>
+                        <div>
+                            <label class="checkout-label" for="bill-last">Last name</label>
+                            <input class="checkout-input" type="text" id="bill-last" name="lastName" autocomplete="billing family-name">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="bill-a1">Address</label>
+                        <input class="checkout-input" type="text" id="bill-a1" name="address1" autocomplete="billing street-address">
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="bill-a2">Apartment, suite, etc. (optional)</label>
+                        <input class="checkout-input" type="text" id="bill-a2" name="address2" autocomplete="billing address-line2">
+                    </div>
+                    <div class="checkout-field-group checkout-field-group--2">
+                        <div>
+                            <label class="checkout-label" for="bill-city">City</label>
+                            <input class="checkout-input" type="text" id="bill-city" name="city" autocomplete="billing address-level2">
+                        </div>
+                        <div>
+                            <label class="checkout-label" for="bill-pin">Pincode</label>
+                            <input class="checkout-input" type="text" id="bill-pin" name="pincode" inputmode="numeric" autocomplete="billing postal-code">
+                        </div>
+                    </div>
+                    <div class="checkout-field-group checkout-field-group--2">
+                        <div>
+                            <label class="checkout-label" for="bill-state">State</label>
+                            <input class="checkout-input" type="text" id="bill-state" name="state" autocomplete="billing address-level1">
+                        </div>
+                        <div>
+                            <label class="checkout-label" for="bill-country">Country</label>
+                            <input class="checkout-input" type="text" id="bill-country" name="country" autocomplete="billing country-name">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="checkout-label" for="bill-phone">Phone number</label>
+                        <input class="checkout-input" type="tel" id="bill-phone" name="phone" autocomplete="billing tel">
+                    </div>
+                </div>
+                <p id="checkout-billing-error" class="checkout-error" hidden>Please complete all billing fields.</p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" href="#delivery">Back</a>
+                    <button type="submit" class="checkout-btn checkout-btn--primary">Continue to payment</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Step 5: Payment -->
+        <section id="orders-step-payment" class="orders-step orders-step--narrow" data-checkout-step="payment" hidden>
+            <form id="checkout-payment-form" class="checkout-form" novalidate>
+                <div class="checkout-pay-grid" role="radiogroup" aria-label="Payment options">
+                    <div class="checkout-pay-block" data-pay-block="upi">
+                        <label class="checkout-pay-option">
+                            <input type="radio" name="pay-method" value="upi" id="pay-method-upi" required>
+                            <span class="checkout-pay-card" data-razorpay-compatible="upi">
+                                <span class="checkout-pay-name">UPI</span>
+                                <span class="checkout-pay-desc">Instant UPI; ready to connect to Razorpay Checkout.</span>
+                            </span>
+                        </label>
+                        <div id="checkout-pay-panel-upi" class="checkout-pay-panel" hidden>
+                            <p class="checkout-pay-panel-title">Choose UPI app</p>
+                            <div class="checkout-pay-sub-grid" role="radiogroup" aria-label="UPI application">
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-upi-app" value="gpay">
+                                    <span class="checkout-pay-sub-card">Google Pay</span>
+                                </label>
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-upi-app" value="phonepe">
+                                    <span class="checkout-pay-sub-card">PhonePe</span>
+                                </label>
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-upi-app" value="bhim">
+                                    <span class="checkout-pay-sub-card">BHIM</span>
+                                </label>
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-upi-app" value="paytm">
+                                    <span class="checkout-pay-sub-card">Paytm</span>
+                                </label>
+                                <label class="checkout-pay-sub-option checkout-pay-sub-option--wide">
+                                    <input type="radio" name="pay-upi-app" value="other">
+                                    <span class="checkout-pay-sub-card">Other UPI</span>
+                                </label>
+                            </div>
+                            <div id="checkout-pay-upi-other-wrap" class="checkout-pay-field-block" hidden>
+                                <label class="checkout-label" for="pay-upi-id">UPI ID</label>
+                                <input class="checkout-input" type="text" id="pay-upi-id" name="pay-upi-id" inputmode="email" autocomplete="off" placeholder="yourname@upi">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-pay-block" data-pay-block="card">
+                        <label class="checkout-pay-option">
+                            <input type="radio" name="pay-method" value="card" id="pay-method-card" required>
+                            <span class="checkout-pay-card" data-razorpay-compatible="card">
+                                <span class="checkout-pay-name">Credit or debit card</span>
+                                <span class="checkout-pay-desc">Visa, Mastercard, RuPay via your gateway.</span>
+                            </span>
+                        </label>
+                        <div id="checkout-pay-panel-card" class="checkout-pay-panel" hidden>
+                            <p class="checkout-pay-panel-title">Card type</p>
+                            <div class="checkout-pay-sub-grid checkout-pay-sub-grid--inline" role="radiogroup" aria-label="Card type">
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-card-type" value="debit">
+                                    <span class="checkout-pay-sub-card">Debit card</span>
+                                </label>
+                                <label class="checkout-pay-sub-option">
+                                    <input type="radio" name="pay-card-type" value="credit">
+                                    <span class="checkout-pay-sub-card">Credit card</span>
+                                </label>
+                            </div>
+                            <div class="checkout-pay-card-fields">
+                                <div>
+                                    <label class="checkout-label" for="pay-card-name">Cardholder name</label>
+                                    <input class="checkout-input" type="text" id="pay-card-name" name="pay-card-name" autocomplete="cc-name">
+                                </div>
+                                <div>
+                                    <label class="checkout-label" for="pay-card-number">Card number</label>
+                                    <input class="checkout-input" type="text" id="pay-card-number" name="pay-card-number" inputmode="numeric" autocomplete="cc-number" maxlength="19">
+                                </div>
+                                <div class="checkout-field-group checkout-field-group--2">
+                                    <div>
+                                        <label class="checkout-label" for="pay-card-expiry">Expiry (MM/YY)</label>
+                                        <input class="checkout-input" type="text" id="pay-card-expiry" name="pay-card-expiry" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY">
+                                    </div>
+                                    <div>
+                                        <label class="checkout-label" for="pay-card-cvv">CVV</label>
+                                        <input class="checkout-input" type="password" id="pay-card-cvv" name="pay-card-cvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkout-pay-block" data-pay-block="cod">
+                        <label class="checkout-pay-option">
+                            <input type="radio" name="pay-method" value="cod" id="pay-method-cod" required>
+                            <span class="checkout-pay-card">
+                                <span class="checkout-pay-name">Cash on delivery</span>
+                                <span class="checkout-pay-desc">Pay when your order arrives.</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <p class="checkout-pay-note">Razorpay: use the same totals and method from your draft when the server returns an order id.</p>
+                <p id="checkout-payment-error" class="checkout-error" hidden>Please select a payment method.</p>
+                <p id="checkout-payment-detail-error" class="checkout-error" hidden></p>
+                <div class="checkout-actions">
+                    <a class="checkout-btn checkout-btn--ghost" href="#billing">Back</a>
+                    <button type="submit" class="checkout-btn checkout-btn--primary">Continue to review</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Step 6: Review -->
+        <section id="orders-step-review" class="orders-step orders-step--narrow" data-checkout-step="review" hidden>
+            <div class="checkout-review-block">
+                <h2 class="checkout-review-heading">Customer</h2>
+                <p class="checkout-review-body" id="review-customer"></p>
+                <p class="checkout-review-edit"><a href="#customer">Edit</a></p>
+            </div>
+            <div class="checkout-review-block">
+                <h2 class="checkout-review-heading">Delivery address</h2>
+                <p class="checkout-review-body" id="review-delivery"></p>
+                <p class="checkout-review-edit"><a href="#delivery">Edit</a></p>
+            </div>
+            <div class="checkout-review-block">
+                <h2 class="checkout-review-heading">Billing address</h2>
+                <p class="checkout-review-body" id="review-billing"></p>
+                <p class="checkout-review-edit"><a href="#billing">Edit</a></p>
+            </div>
+            <div class="checkout-review-block">
+                <h2 class="checkout-review-heading">Payment</h2>
+                <p class="checkout-review-body" id="review-payment"></p>
+                <p class="checkout-review-edit"><a href="#payment">Edit</a></p>
+            </div>
+            <div class="checkout-review-block">
+                <h2 class="checkout-review-heading">Items</h2>
+                <div class="checkout-review-items" id="review-items"></div>
+            </div>
+            <div class="checkout-totals" id="review-totals"></div>
+            <p id="checkout-place-order-msg" class="checkout-error" role="alert" hidden></p>
+            <div class="checkout-actions">
+                <a class="checkout-btn checkout-btn--ghost" href="#payment">Back</a>
+                <button type="button" class="checkout-btn checkout-btn--primary" id="checkout-place-order">Place order</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/cart-firestore.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="../js/orders-config.js"></script>
+    <script src="../js/orders.js"></script>
+</body>
+</html>

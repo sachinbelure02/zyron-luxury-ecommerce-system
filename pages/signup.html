@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+    <div class="main-content-wrapper">
+        <div class="brand-title">Zyron Store</div>
+        <h1 class="signup-header">Create Your Account</h1>
+        <div id="signup-errors"></div>
+        <form id="signup-form" class="signup-form">
+            <!-- Left Column Fields -->
+            <div class="form-group">
+                <label for="signup-email">Email *</label>
+                <input type="email" id="signup-email" required>
+                <div class="error-message" id="error-signup-email"></div>
+            </div>
+            <div class="form-group password-group">
+                <label for="signup-password">Password *</label>
+                <input type="password" id="signup-password" required>
+                <button type="button" class="toggle-password-visibility" aria-label="Toggle password visibility">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path class="eye-open" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle class="eye-open" cx="12" cy="12" r="3"/>
+                        <path class="eye-closed" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.02 18.02 0 0 1 2.54-3.83m1.42-1.42A10.07 10.07 0 0 1 12 4c7 0 11 8 11 8a18.02 18.02 0 0 1-2.54 3.83m-1.42 1.42z"/>
+                        <line class="eye-closed" x1="1" y1="1" x2="23" y2="23"/>
+                    </svg>
+                </button>
+                <div class="error-message" id="error-signup-password"></div>
+            </div>
+            
+            <!-- Right Column Fields -->
+            <div class="form-group">
+                <label for="signup-title">Title</label>
+                <select id="signup-title">
+                    <option value="">Select</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Miss">Miss</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="signup-first-name">First Name *</label>
+                <input type="text" id="signup-first-name" required>
+                <div class="error-message" id="error-signup-first-name"></div>
+            </div>
+            <div class="form-group">
+                <label for="signup-last-name">Last Name *</label>
+                <input type="text" id="signup-last-name" required>
+                <div class="error-message" id="error-signup-last-name"></div>
+            </div>
+            <div class="form-group">
+                <label for="signup-phone">Phone Number</label>
+                <input type="tel" id="signup-phone">
+            </div>
+            <div class="form-group">
+                <label for="signup-dob">Date of Birth</label>
+                <input type="date" id="signup-dob">
+            </div>
+            <div class="form-group"></div> <!-- Empty div for spacing/alignment -->
+
+            <div class="form-group privacy-policy-group">
+                <input type="checkbox" id="privacy-policy" required>
+                <label for="privacy-policy">I accept the Privacy Policy *</label>
+                <div class="error-message" id="error-privacy-policy"></div>
+            </div>
+            <div class="action-buttons">
+                <button type="submit" class="create-account-button submit-btn">Create Account</button>
+                <button type="button" id="back-to-login" class="back-to-login-btn">Back to Login</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/signup-page.js"></script>
+</body>
+</html>

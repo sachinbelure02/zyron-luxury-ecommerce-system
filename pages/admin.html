@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Zyron</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            background: #f8f6f3;
+            color: #111;
+            font-family: "DM Sans", Arial, sans-serif;
+        }
+
+        .admin-topbar {
+            background: #fff;
+            border-bottom: 1px solid #ece7e1;
+        }
+
+        .admin-topbar__inner {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .admin-brand {
+            color: #111;
+            text-decoration: none;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .admin-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .admin-nav-link,
+        .admin-nav-current {
+            font-size: 0.84rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .admin-nav-link {
+            color: #3d3935;
+            text-decoration: none;
+        }
+
+        .admin-nav-link:hover {
+            color: #111;
+        }
+
+        .admin-nav-current {
+            color: #111;
+            font-weight: 600;
+        }
+
+        .admin-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 42px 28px 56px;
+        }
+
+        .admin-title {
+            margin: 0;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #111;
+            padding-bottom: 10px;
+        }
+
+        .admin-subtitle {
+            margin: 0 0 22px;
+            color: #4d4a46;
+            font-size: 0.98rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .admin-section-title {
+            margin: 0 0 14px;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #171513;
+        }
+
+        .admin-order-card {
+            border: 1px solid #e5e1dc;
+            border-radius: 14px;
+            background: #fffdfb;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 22px rgba(17, 17, 17, 0.04);
+        }
+
+        .admin-order-row {
+            margin: 0 0 9px;
+            line-height: 1.65;
+            word-break: break-word;
+            color: #2c2a27;
+            font-size: 0.96rem;
+        }
+
+        .admin-order-row strong {
+            color: #141311;
+            font-weight: 600;
+        }
+
+        .admin-order-row:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .admin-order-actions {
+            margin-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .admin-order-status-select {
+            min-width: 160px;
+            padding: 11px 12px;
+            border: 1px solid #d9d4ce;
+            border-radius: 10px;
+            background: #fffdfb;
+            font: inherit;
+            color: #111;
+            outline: none;
+        }
+
+        .admin-order-status-select:focus {
+            border-color: #111;
+        }
+
+        .admin-update-btn {
+            padding: 11px 18px;
+            border: 1px solid #111;
+            border-radius: 10px;
+            background: #111;
+            color: #fff;
+            font: inherit;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+        }
+
+        .admin-update-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.72;
+        }
+
+        .admin-message {
+            margin: 0 0 18px;
+            color: #44403c;
+            font-size: 0.94rem;
+        }
+
+        #ordersContainer > *:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .admin-topbar__inner {
+                padding: 14px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .admin-nav {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 14px;
+            }
+
+            .admin-wrapper {
+                padding: 26px 16px 36px;
+            }
+
+            .admin-order-card {
+                padding: 16px;
+            }
+
+            .admin-order-actions {
+                gap: 8px;
+            }
+
+            .admin-order-status-select,
+            .admin-update-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-topbar">
+        <div class="admin-topbar__inner">
+            <a href="../index.html" class="admin-brand">ZYRON</a>
+            <nav class="admin-nav" aria-label="Admin navigation">
+                <a class="admin-nav-link" href="../index.html">Home</a>
+                <a class="admin-nav-link" href="./orders.html">Orders</a>
+                <a class="admin-nav-link" href="./profile.html">Profile</a>
+                <span class="admin-nav-current" aria-current="page">Admin Dashboard</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-wrapper">
+        <h1 class="admin-title">Admin Dashboard</h1>
+        <p class="admin-subtitle">Orders Overview</p>
+        <p id="adminMessage" class="admin-message">Checking admin access...</p>
+        <section id="ordersContainer" aria-live="polite"></section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

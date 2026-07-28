@@ -1,0 +1,514 @@
+        /* General Body and Layout */
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #ffffff; /* Pure white background */
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-wrapper {
+            width: 100%;
+            max-width: 1400px; /* Wider main wrapper for full-width sections */
+            margin: 0 auto; /* Center the main content */
+            padding: 0;
+        }
+
+        .content-area {
+            max-width: 1200px; /* Content within sections should be max 1200px */
+            margin: 0 auto;
+            padding: 40px 20px; /* Add padding for breathing room */
+        }
+
+        /* Top Luxury Header */
+        .luxury-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0; /* Thin elegant border */
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center; /* Center brand name */
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .luxury-header .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em; /* Premium typography */
+            font-weight: 600;
+            color: #000000;
+            text-decoration: none;
+            text-align: center;
+            flex-grow: 1; /* Allows centering the brand name */
+        }
+
+        /* Account Navigation Bar */
+        .account-nav-container {
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            padding: 0 20px;
+        }
+
+        .profile-back-row {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 0 2px;
+        }
+
+        .profile-back-button {
+            background: transparent;
+            border: none;
+            color: #2d2d2d;
+            font-family: var(--font-primary);
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            padding: 2px 0;
+        }
+
+        .profile-back-button:hover {
+            color: #000;
+        }
+
+        .account-nav {
+            display: flex;
+            justify-content: space-around; /* Evenly spaced tabs */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 0;
+            list-style: none;
+        }
+
+        .account-nav-item {
+            padding: 10px 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent; /* Subtle border for hover/active */
+        }
+
+        .account-nav-item:hover {
+            color: #000000;
+            border-bottom-color: #000000;
+        }
+
+        .account-nav-item.active {
+            color: #000000;
+            border-bottom-color: #000000;
+            font-weight: 600;
+        }
+
+        /* Hero / Banner Area */
+        .hero-banner {
+            width: 100%;
+            height: 390px;
+            background-image:
+                url('../images/wallpaper-4.jpg');
+            background-size: cover;
+            background-position: center 40%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-bottom: 56px;
+        }
+
+        .profile-avatar-wrapper {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 50%);
+            background-color: #e8e8e800;
+            border-radius: 50%;
+            padding: 7px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .profile-avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--font-primary);
+            font-size: 1.45em;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            color: #1c1c1c;
+            text-transform: uppercase;
+        }
+
+        /* User Identity Section */
+        .user-identity-section {
+            text-align: center;
+            margin-top: 3px;
+            margin-bottom: 50px; /* Elegant spacing */
+        }
+
+        .user-identity-section .user-full-name {
+            font-family: var(--font-primary);
+            font-size: 1.40em;
+            font-weight: 200;
+            color: #000000;
+            letter-spacing: 0.01em;
+            margin: 0;
+        }
+
+        .user-identity-section .user-email,
+        .user-identity-section .user-phone,
+        .user-identity-section .member-since {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        #profile-user-name,
+        .user-identity-section .user-email,
+        .user-identity-section .user-phone,
+        .user-identity-section .member-since {
+            display: none;
+        }
+
+        /* Content Sections (Overview, Profile, Orders, Wishlist, Settings) */
+        .dashboard-content-section {
+            display: none; /* Hidden by default, controlled by JS */
+            margin-bottom: 60px; /* Generous bottom margin */
+        }
+
+        .dashboard-content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0; /* Soft border */
+        }
+
+        .content-block-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; /* Lots of white space */
+        }
+
+        .content-block {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px; /* Slightly rounded corners */
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Subtle shadow */
+        }
+
+        .content-block h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #f0f0f0;
+        }
+
+        .content-block p, .content-block ul {
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-block ul li {
+            margin-bottom: 10px;
+        }
+
+        .content-block a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .content-block a:hover {
+            color: #555;
+        }
+
+        /* Specific section styling */
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        .empty-state h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            margin-bottom: 20px;
+        }
+
+        .empty-state .button {
+            background-color: #000;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .empty-state .button:hover {
+            background-color: #333;
+        }
+
+        /* Account Settings */
+        .settings-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .settings-actions .button {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-align: center;
+        }
+
+        .settings-actions .button:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .settings-actions .logout-button {
+            background-color: #a00;
+            color: #fff;
+            border-color: #a00;
+        }
+
+        .settings-actions .logout-button:hover {
+            background-color: #c00;
+            border-color: #c00;
+        }
+
+        .profile-edit-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 48px;
+        }
+
+        .profile-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 22px;
+        }
+
+        .profile-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .profile-form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .profile-form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #444;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .profile-form-group input,
+        .profile-form-group select {
+            height: 46px;
+            border: 1px solid #1f1f1f;
+            border-radius: 5px;
+            padding: 0 12px;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        .profile-form-actions {
+            margin-top: 6px;
+            grid-column: 1 / -1;
+        }
+
+        .profile-form-actions .button.primary-button {
+            background: #111;
+            color: #fff;
+            border: 1px solid #111;
+            border-radius: 999px;
+            padding: 12px 34px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+        }
+
+        .profile-side-section {
+            margin-bottom: 28px;
+            border-top: 1px solid #ececec;
+            padding-top: 18px;
+        }
+
+        .profile-side-section:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .profile-side-section h4 {
+            margin: 0 0 14px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .preference-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .pref-toggle {
+            width: 18px;
+            height: 18px;
+            accent-color: #111;
+        }
+
+        .inline-value {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .link-button {
+            border: 1px solid #222;
+            background: #fff;
+            color: #111;
+            border-radius: 999px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            cursor: pointer;
+        }
+
+        .profile-order-item {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .profile-order-image {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ececec;
+            background: #f7f7f7;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 960px) {
+            .hero-banner {
+                height: 305px;
+                margin-bottom: 46px;
+            }
+            .profile-avatar {
+                width: 74px;
+                height: 74px;
+                font-size: 1.2em;
+            }
+            .user-identity-section .user-full-name {
+                font-size: 1.72em;
+            }
+            .account-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .account-nav-item {
+                margin: 5px 10px;
+            }
+            .content-area {
+                padding: 30px 15px;
+            }
+            .content-block-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-edit-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .profile-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .luxury-header {
+                padding: 15px 20px;
+            }
+            .luxury-header .brand-name {
+                font-size: 1.5em;
+            }
+            .hero-banner {
+                height: 235px;
+                margin-bottom: 38px;
+            }
+            .profile-avatar {
+                width: 58px;
+                height: 58px;
+                font-size: 1.02em;
+            }
+            .user-identity-section .user-full-name {
+                font-size: 1.42em;
+            }
+            .account-nav-item {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }

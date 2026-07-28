@@ -1,0 +1,168 @@
+body.handbags-viewer-page {
+    font-family: var(--font-primary); /* Inherit from root */
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+body.handbags-viewer-page.with-site-header {
+    padding: 90px 20px 20px;
+}
+
+.handbag-grid-container {
+    display: grid;
+    gap: 24px; 
+    padding: 40px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Desktop: 4 products per row */
+@media (min-width: 1024px) {
+    .handbag-grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet: 2 products per row */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .handbag-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 product per row */
+@media (max-width: 767px) {
+    .handbag-grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.product-card-shell {
+    position: relative;
+    height: 100%;
+}
+
+.handbag-grid-container .product-card-shell .product-card {
+    height: 100%;
+}
+
+.wishlist-heart-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.wishlist-heart-btn:hover {
+    opacity: 0.72;
+}
+
+.wishlist-heart-btn:active {
+    opacity: 0.55;
+}
+
+.wishlist-heart-btn .wishlist-heart-icon {
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.wishlist-heart-btn .wishlist-heart-icon path {
+    fill: none;
+    stroke: #1a1a1a;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.wishlist-heart-btn[aria-pressed="true"] .wishlist-heart-icon path {
+    fill: #1a1a1a;
+    stroke: none;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 0; /* Changed to sharp corners */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.product-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7; 
+    border-radius: 0; /* Changed to sharp corners */
+}
+
+.product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05); 
+}
+
+.product-info {
+    padding: 16px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-family: var(--font-display); /* Changed font family */
+    font-size: 0.85rem; /* Reduced font size for elegance */
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-price {
+    font-family: var(--font-primary); /* Inherit from root */
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0; 
+}
